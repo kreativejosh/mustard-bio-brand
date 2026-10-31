@@ -1,0 +1,216 @@
+<!doctype html><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
+<style>
+/* Each .ab is bleed size (trim + 3mm each side). .trim is the finished size; content lives inside it. */
+:root{--ink:#222F30;--deep:#445E5F;--sage:#C9CBBE;--lime:#A7E26E;--mint:#CEF79E;--off:#F7F7F5;--stone:#E7E8E1;--g1:#EEEEEE;--g2:#E4E3E3;--t2:#5C6B6C;--t3:#445E5F;
+--sans:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+@page{margin:0}
+body{background:#9a9a9a;font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body.solo{background:transparent}
+.ab{position:relative;overflow:hidden;margin:10mm;background:#fff;break-after:page}
+body.solo .ab{margin:0}
+.trim{position:absolute;inset:3mm;overflow:visible}
+.mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+.lab{font:500 2.3mm/1.45 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:#445E5F}
+.k{color:var(--ink)}
+.h{font-weight:400;letter-spacing:-.03em;line-height:1.02}
+.mute{color:var(--sage)}
+.tag{display:inline-flex;align-items:center;gap:1.6mm;background:var(--off);border-radius:.8mm;padding:1.1mm 1.8mm;font:400 2.1mm/1 var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.tag::before{content:"";width:1.5mm;height:1.5mm;background:var(--lime)}
+.rule{display:flex;align-items:flex-end}
+.rule span{display:block;background:currentColor}
+.abs{position:absolute}
+.cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.line{height:1.6mm;background:var(--g1);border-radius:.4mm;margin:2.6mm 0}
+.copy{font-size:3.5mm;line-height:1.55;color:#3c4a4b;margin:0 0 3.5mm}
+table{border-collapse:collapse;width:100%}
+td,th{text-align:left;padding:2.2mm 0;border-bottom:.2mm solid var(--g2);font-size:3mm;vertical-align:top}
+th{font:400 2mm/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--t3);border-bottom:.3mm solid var(--ink)}
+td.r,th.r{text-align:right}
+</style>
+<script>
+// scale rule: 11 graduations from the mark, dose in lime
+function rule(h, w, pitch, colour, doseColour){return `<div class="rule" style="height:${h}mm;gap:${pitch}mm;color:${colour}">`+[30,100,85,70,55,40,55,70,85,100,30].map((p,i)=>`<span style="height:${p}%;width:${i==5?w*2.2:w}mm;${i==5?'background:'+(doseColour||colour):''}"></span>`).join('')+'</div>'}
+</script>
+<body>
+
+<!-- 01 BUSINESS CARD FRONT 85x55 -->
+<div class="ab" id="business-card-front" data-trim="85x55" style="width:91mm;height:61mm;background:#222F30"><div class="trim" style="color:#fff">
+  <img src="logo/primary-white-dose.svg" class="abs" style="left:7mm;top:7mm;width:42mm">
+  <div class="lab abs" style="left:7mm;bottom:6.5mm;color:var(--sage);font-size:1.75mm">The intelligence layer for the<br>pharmaceutical factories of the future</div>
+  <div class="abs" style="right:7mm;bottom:7mm"><script>document.write(rule(13,.45,1.15,'rgba(255,255,255,.22)','#A7E26E'))</script></div>
+</div></div>
+
+<!-- 02 BUSINESS CARD BACK -->
+<div class="ab" id="business-card-back" data-trim="85x55" style="width:91mm;height:61mm;background:#F7F7F5"><div class="trim">
+  <div class="abs" style="left:7mm;top:7mm"><div class="h" style="font-size:4.4mm">Firstname Lastname</div><div class="lab" style="margin-top:1.4mm;color:var(--deep)">Job title</div></div>
+  <div class="abs" style="left:7mm;bottom:7mm;display:grid;grid-template-columns:4mm auto;gap:1.1mm 0;font-size:2.35mm;align-items:baseline">
+    <span class="lab">E</span><span>name@company-domain</span><span class="lab">T</span><span>+000 000 000 0000</span><span class="lab">W</span><span>website-domain</span></div>
+  <img src="logo/mark-small-charcoal.svg" class="abs" style="right:7mm;bottom:7mm;width:9mm">
+</div></div>
+
+<!-- 03 LETTERHEAD A4 -->
+<div class="ab" id="letterhead" data-trim="210x297" style="width:216mm;height:303mm"><div class="trim">
+  <img src="logo/primary-charcoal.svg" class="abs" style="left:20mm;top:18mm;width:56mm">
+  <div class="lab abs" style="right:20mm;top:19mm;text-align:right">Street address<br>City, Country<br>website-domain</div>
+  <div class="abs" style="left:20mm;top:62mm;width:118mm;font-size:3.6mm;line-height:1.6;color:var(--t2)">
+    <div class="lab" style="margin-bottom:9mm">00 Month 0000 · Ref 0000</div>
+    <div style="margin-bottom:6mm;color:var(--ink)">Recipient name<br>Organisation<br>Address line</div>
+    <div style="margin-bottom:5mm;color:var(--ink)">Dear Name,</div>
+    <p class="copy" style="margin-top:7mm;">Our mission is to develop, validate, and commercialise intelligent manufacturing systems that make pharmaceutical production faster, more efficient, reliable, and cost-effective.</p><div style="margin-top:12mm;color:var(--ink)">Firstname Lastname<br><span class="lab">Job title</span></div>
+  </div>
+  <div class="abs" style="left:20mm;right:20mm;bottom:12mm;border-top:.25mm solid var(--g2);padding-top:3.5mm;display:flex;justify-content:space-between" class="lab"><span class="lab">Mustard Bio · Company registration no. 000000</span><span class="lab">The intelligence layer for the pharmaceutical factories of the future</span></div>
+</div><div class="abs" style="left:0;right:0;bottom:0;height:7mm;background:var(--lime)"></div></div>
+
+<!-- 04 CONTINUATION SHEET A4 -->
+<div class="ab" id="continuation-sheet" data-trim="210x297" style="width:216mm;height:303mm"><div class="trim">
+  <img src="logo/mark-small-charcoal.svg" class="abs" style="left:20mm;top:18mm;width:10mm">
+  <div class="lab abs" style="right:20mm;top:20mm">Page 0 of 0</div>
+  <div class="abs" style="left:20mm;top:44mm;width:118mm"><p class="copy" style="margin-top:7mm;">We envision a future where pharmaceutical manufacturing is increasingly autonomous, intelligent, efficient, and accessible, transforming how essential medicines are produced and supplied globally.</p></div>
+  <div class="abs" style="left:20mm;right:20mm;bottom:12mm;border-top:.25mm solid var(--g2);padding-top:3.5mm"><span class="lab">Mustard Bio · website-domain</span></div>
+</div></div>
+
+<!-- 05 COMPLIMENTS SLIP 210x99 -->
+<div class="ab" id="compliments-slip" data-trim="210x99" style="width:216mm;height:105mm"><div class="trim">
+  <img src="logo/primary-charcoal.svg" class="abs" style="left:14mm;top:13mm;width:52mm">
+  <div class="h abs" style="left:14mm;bottom:13mm;font-size:9mm">With compliments</div>
+  <div class="lab abs" style="right:14mm;bottom:13mm;text-align:right">Street address<br>City, Country<br>website-domain</div>
+  <div class="abs" style="right:14mm;top:13mm"><script>document.write(rule(14,.5,1.3,'#C9CBBE','#A7E26E'))</script></div>
+</div></div>
+
+<!-- 06 DL ENVELOPE 220x110 -->
+<div class="ab" id="envelope-dl" data-trim="220x110" style="width:226mm;height:116mm"><div class="trim">
+  <img src="logo/primary-charcoal.svg" class="abs" style="left:12mm;top:11mm;width:44mm">
+  <div class="lab abs" style="left:12mm;top:24mm">Return: Street address, City, Country</div>
+  <div class="abs" style="left:100mm;top:52mm;width:90mm;font-size:3.6mm;line-height:1.5;color:var(--t3)">Recipient name<br>Organisation<br>Address line<br>City, Country</div>
+</div><div class="abs" style="left:0;top:0;bottom:0;width:8mm;background:var(--lime)"></div></div>
+
+<!-- 07 C4 ENVELOPE 324x229 -->
+<div class="ab" id="envelope-c4" data-trim="324x229" style="width:330mm;height:235mm;background:#222F30"><div class="trim" style="color:#fff">
+  <img src="logo/primary-white-dose.svg" class="abs" style="left:18mm;top:17mm;width:66mm">
+  <div class="abs" style="left:150mm;top:110mm;width:150mm;height:62mm;background:#fff;border-radius:2mm;padding:9mm;font-size:4.2mm;line-height:1.55;color:var(--t3)">Recipient name<br>Organisation<br>Address line<br>City, Country</div>
+  <div class="lab abs" style="left:18mm;bottom:16mm;color:var(--sage)">Return: Street address, City, Country</div>
+</div></div>
+
+<!-- 08 PRESENTATION FOLDER outer spread 440x310 (back | front) -->
+<div class="ab" id="presentation-folder" data-trim="440x310" style="width:446mm;height:316mm;background:#222F30"><div class="trim" style="color:#fff">
+  <img src="final/flow-dark.png" class="abs" style="left:220mm;top:-3mm;width:223mm;height:316mm;object-fit:cover">
+  <img src="logo/primary-white-dose.svg" class="abs" style="left:240mm;top:22mm;width:90mm">
+  <div class="h abs" style="left:240mm;bottom:40mm;width:170mm;font-size:17mm">The intelligence layer for the <span style="color:var(--mint)">pharmaceutical factories of the future.</span></div>
+  <div class="lab abs" style="left:240mm;bottom:22mm;color:var(--sage)">website-domain</div>
+  <img src="logo/mark-white-dose.svg" class="abs" style="left:20mm;top:22mm;width:30mm">
+  <div class="lab abs" style="left:20mm;bottom:22mm;color:var(--sage)">Mustard Bio · Street address, City, Country</div>
+  <div class="abs" style="left:219.7mm;top:0;bottom:0;width:.3mm;background:rgba(255,255,255,.08)"></div>
+</div></div>
+
+<!-- 09 NOTEPAD A5 -->
+<div class="ab" id="notepad" data-trim="148x210" style="width:154mm;height:216mm"><div class="trim">
+  <div class="abs" style="left:-3mm;right:-3mm;top:-3mm;height:27mm;background:var(--ink);display:flex;align-items:center;justify-content:space-between;padding:3mm 15mm 0"><img src="logo/primary-white-dose.svg" style="height:6mm"><span class="lab" style="color:var(--sage)">Notes</span></div>
+  <div class="abs" style="left:12mm;right:12mm;top:32mm;display:flex;justify-content:space-between"><span class="lab">Date ____ / ____ / ________</span><span class="lab">Ref ________</span></div>
+  <div class="abs" style="left:12mm;right:12mm;top:44mm;bottom:14mm;background-image:repeating-linear-gradient(to bottom,transparent 0 7.3mm,#E4E3E3 7.3mm 7.5mm)"></div>
+  <div class="abs" style="left:12mm;bottom:7mm"><script>document.write(rule(4,.25,.6,'#C9CBBE','#A7E26E'))</script></div>
+</div></div>
+
+<!-- 10 NOTEBOOK COVER A5 -->
+<div class="ab" id="notebook-cover" data-trim="148x210" style="width:154mm;height:216mm;background:#222F30"><div class="trim" style="color:#fff">
+  <img src="logo/mark-white-dose.svg" class="abs" style="left:14mm;top:16mm;width:36mm">
+  <div class="h abs" style="left:14mm;bottom:24mm;font-size:13mm">Measured,<br><span class="mute">not guessed.</span></div>
+  <div class="lab abs" style="left:14mm;bottom:13mm;color:var(--sage)">Mustard Bio</div>
+</div></div>
+
+<!-- 11 REPORT COVER A4 -->
+<div class="ab" id="report-cover" data-trim="210x297" style="width:216mm;height:303mm;background:#F7F7F5"><div class="trim">
+  <img src="logo/primary-charcoal.svg" class="abs" style="left:18mm;top:18mm;width:58mm">
+  <span class="tag abs" style="right:18mm;top:19mm;background:#fff">Report · 00/0000</span>
+  <div class="h abs" style="left:18mm;right:18mm;top:52mm;font-size:21mm">Report title set in Display 2 <span class="mute">with a second half in sage.</span></div>
+  <div class="abs" style="left:18mm;right:18mm;bottom:40mm;height:120mm;border-radius:4mm;overflow:hidden"><img src="final/capsule-dark.png" class="cover"></div>
+  <div class="abs" style="left:18mm;right:18mm;bottom:18mm;display:flex;justify-content:space-between"><span class="lab">Prepared by · Name</span><span class="lab">Confidential · Version 0.0</span></div>
+</div></div>
+
+<!-- 12 DOCUMENT TEMPLATE A4 (first page) -->
+<div class="ab" id="document-template" data-trim="210x297" style="width:216mm;height:303mm"><div class="trim">
+  <div class="abs" style="left:20mm;right:20mm;top:16mm;display:flex;justify-content:space-between;align-items:center;border-bottom:.25mm solid var(--g2);padding-bottom:5mm"><img src="logo/primary-charcoal.svg" style="width:38mm"><span class="lab">Document no. 0000 · Rev 00</span></div>
+  <div class="abs" style="left:20mm;right:20mm;top:40mm">
+    <span class="tag">Document type</span>
+    <div class="h" style="font-size:10mm;margin:7mm 0 9mm">Document title</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-bottom:10mm">
+      <div style="background:var(--off);border-radius:1.5mm;padding:3.5mm"><div class="lab">Owner</div><div style="font-size:3.3mm;margin-top:1.5mm">Name</div></div>
+      <div style="background:var(--off);border-radius:1.5mm;padding:3.5mm"><div class="lab">Effective</div><div style="font-size:3.3mm;margin-top:1.5mm">00/00/0000</div></div>
+      <div style="background:var(--off);border-radius:1.5mm;padding:3.5mm"><div class="lab">Status</div><div style="font-size:3.3mm;margin-top:1.5mm">Draft</div></div>
+    </div>
+    <div class="lab k" style="margin-bottom:2mm">1 · Section heading</div><p class="copy" style="">Mustard Bio is the intelligence layer for the pharmaceutical factories of the future.</p><div class="lab k" style="margin:8mm 0 2mm">2 · Section heading</div><p class="copy" style="">Our mission is to develop, validate, and commercialise intelligent manufacturing systems that make pharmaceutical production faster, more efficient, reliable, and cost-effective.</p><div class="lab k" style="margin:8mm 0 2mm">3 · Section heading</div><p class="copy" style="">We envision a future where pharmaceutical manufacturing is increasingly autonomous, intelligent, efficient, and accessible, transforming how essential medicines are produced and supplied globally.</p></div>
+  <div class="abs" style="left:20mm;right:20mm;bottom:12mm;display:flex;justify-content:space-between"><span class="lab">Mustard Bio</span><span class="lab">Page 1 of 0</span></div>
+</div></div>
+
+<!-- 13 INVOICE A4 -->
+<div class="ab" id="invoice" data-trim="210x297" style="width:216mm;height:303mm"><div class="trim">
+  <img src="logo/primary-charcoal.svg" class="abs" style="left:20mm;top:18mm;width:50mm">
+  <div class="abs" style="right:20mm;top:16mm;text-align:right"><div class="h" style="font-size:10mm">Invoice</div><div class="lab" style="margin-top:2mm">No. INV-0000 · 00/00/0000</div></div>
+  <div class="abs" style="left:20mm;right:20mm;top:50mm;display:grid;grid-template-columns:1fr 1fr;gap:10mm;font-size:3.2mm;line-height:1.55;color:var(--t2)">
+    <div><div class="lab k" style="margin-bottom:2mm">Bill to</div>Client name<br>Organisation<br>Address line<br>City, Country</div>
+    <div><div class="lab k" style="margin-bottom:2mm">From</div>Mustard Bio<br>Street address<br>City, Country<br>Tax ID 000000</div></div>
+  <div class="abs" style="left:20mm;right:20mm;top:96mm"><table>
+    <tr><th>Description</th><th class="r">Qty</th><th class="r">Unit</th><th class="r">Amount</th></tr>
+    <tr><td>Item description</td><td class="r">0</td><td class="r">0.00</td><td class="r">0.00</td></tr>
+    <tr><td>Item description</td><td class="r">0</td><td class="r">0.00</td><td class="r">0.00</td></tr>
+    <tr><td>Item description</td><td class="r">0</td><td class="r">0.00</td><td class="r">0.00</td></tr>
+  </table>
+  <div style="margin-left:auto;width:70mm;margin-top:6mm;font-size:3.2mm;display:grid;grid-template-columns:1fr auto;gap:2mm 0"><span class="lab">Subtotal</span><span>0.00</span><span class="lab">Tax</span><span>0.00</span><span class="lab k" style="border-top:.3mm solid var(--ink);padding-top:2mm">Total due</span><span style="border-top:.3mm solid var(--ink);padding-top:2mm;font-size:5mm">0.00</span></div></div>
+  <div class="abs" style="left:20mm;right:20mm;bottom:22mm;background:var(--off);border-radius:2mm;padding:5mm;display:flex;justify-content:space-between;font-size:3mm;gap:8mm"><div><div class="lab k">Payment details</div><div style="margin-top:1.5mm;color:var(--t2)">Bank name · Account 0000000000 · Sort/routing 000000</div></div><div style="text-align:right"><div class="lab k">Terms</div><div style="margin-top:1.5mm;color:var(--t2)">Due in 00 days</div></div></div>
+</div><div class="abs" style="left:0;right:0;bottom:0;height:7mm;background:var(--lime)"></div></div>
+
+<!-- 14 STAFF ID CARD CR80 54x86 front -->
+<div class="ab" id="staff-id-front" data-trim="54x86" style="width:60mm;height:92mm"><div class="trim">
+  <div class="abs" style="left:-3mm;right:-3mm;top:-3mm;height:33mm;background:var(--ink);overflow:hidden"><img src="final/flow-dark.png" class="cover"></div>
+  <div class="abs" style="left:24mm;top:4mm;width:6mm;height:1.6mm;border-radius:.8mm;background:#fff;opacity:.9"></div>
+  <img src="logo/primary-white-dose.svg" class="abs" style="left:5mm;top:10mm;width:30mm">
+  <div class="abs" style="left:5mm;top:21mm;width:19mm;height:23mm;border-radius:1.6mm;background:var(--stone);border:.8mm solid #fff;display:grid;place-items:center;font-size:6mm;color:var(--deep)">FL</div>
+  <div class="abs" style="left:5mm;top:49mm"><div class="h" style="font-size:4.4mm;line-height:1.1">Firstname<br>Lastname</div><div class="lab" style="margin-top:1.4mm;color:var(--deep);font-size:1.8mm">Job title</div></div>
+  <span class="tag abs" style="left:5mm;bottom:9mm;font-size:1.7mm">Staff · Zone 00</span>
+  <div class="abs" style="left:-3mm;right:-3mm;bottom:-3mm;height:8mm;background:var(--lime)"></div>
+</div></div>
+
+<!-- 15 STAFF ID CARD back -->
+<div class="ab" id="staff-id-back" data-trim="54x86" style="width:60mm;height:92mm;background:#F7F7F5"><div class="trim">
+  <div class="abs" style="left:5mm;right:5mm;top:8mm;height:10mm;background:repeating-linear-gradient(90deg,#222F30 0 .35mm,transparent .35mm .7mm,#222F30 .7mm 1.4mm,transparent 1.4mm 1.8mm)"></div>
+  <div class="lab abs" style="left:5mm;top:20mm;font-size:1.8mm">ID 0000-0000</div>
+  <div class="abs" style="left:5mm;right:5mm;top:30mm;font-size:2.3mm;line-height:1.5;color:var(--t2)">If found, please return to Mustard Bio, Street address, City, Country.</div>
+  <div class="abs" style="left:5mm;bottom:11mm"><script>document.write(rule(9,.32,.8,'#C9CBBE','#A7E26E'))</script></div>
+  <img src="logo/mark-small-charcoal.svg" class="abs" style="right:5mm;bottom:11mm;width:8mm">
+</div></div>
+
+<!-- 16 VISITOR PASS -->
+<div class="ab" id="visitor-pass" data-trim="54x86" style="width:60mm;height:92mm;background:#A7E26E"><div class="trim">
+  <img src="logo/primary-charcoal.svg" class="abs" style="left:5mm;top:8mm;width:32mm">
+  <div class="abs" style="left:24mm;top:3.5mm;width:6mm;height:1.6mm;border-radius:.8mm;background:#222F30;opacity:.25"></div>
+  <div class="h abs" style="left:5mm;top:30mm;font-size:11mm">Visitor</div>
+  <div class="abs" style="left:5mm;right:5mm;top:50mm;display:grid;gap:3mm">
+    <div style="border-bottom:.25mm solid rgba(34,47,48,.4);padding-bottom:1mm"><span class="lab k" style="font-size:1.7mm">Name</span></div>
+    <div style="border-bottom:.25mm solid rgba(34,47,48,.4);padding-bottom:1mm"><span class="lab k" style="font-size:1.7mm">Host</span></div>
+    <div style="border-bottom:.25mm solid rgba(34,47,48,.4);padding-bottom:1mm"><span class="lab k" style="font-size:1.7mm">Date</span></div>
+  </div>
+  <div class="lab abs k" style="left:5mm;bottom:5mm;font-size:1.7mm">Escort required in production zones</div>
+</div></div>
+
+<!-- 17 STICKER SHEET A6 105x148 -->
+<div class="ab" id="sticker-sheet" data-trim="105x148" style="width:111mm;height:154mm;background:#F7F7F5"><div class="trim">
+  <div class="abs" style="left:8mm;top:8mm;width:42mm;height:42mm;border-radius:50%;background:var(--ink);display:grid;place-items:center"><img src="logo/mark-white-dose.svg" style="width:26mm"></div>
+  <div class="abs" style="left:55mm;top:8mm;width:42mm;height:42mm;border-radius:50%;background:var(--lime);display:grid;place-items:center"><img src="logo/mark-small-charcoal.svg" style="width:20mm"></div>
+  <div class="abs" style="left:8mm;top:57mm;width:89mm;height:20mm;border-radius:10mm;background:#fff;box-shadow:0 0 0 .25mm #E4E3E3;display:grid;place-items:center"><img src="logo/primary-charcoal.svg" style="width:64mm"></div>
+  <div class="abs" style="left:8mm;top:84mm;width:89mm;height:16mm;border-radius:2mm;background:var(--mint);display:flex;align-items:center;justify-content:center;font:400 3.4mm var(--mono);letter-spacing:.06em;text-transform:uppercase">Measured, not guessed</div>
+  <div class="abs" style="left:8mm;top:107mm;width:42mm;height:30mm;border-radius:2mm;background:#fff;box-shadow:0 0 0 .25mm #E4E3E3;padding:3mm"><div class="lab k" style="font-size:1.8mm">Batch</div><div style="font:400 3.2mm var(--mono);margin-top:1mm">MB-0000-00</div><div class="lab" style="font-size:1.6mm;margin-top:3mm">QC · Initials · Date</div></div>
+  <div class="abs" style="left:55mm;top:107mm;width:42mm;height:30mm;border-radius:2mm;background:var(--ink);display:grid;place-items:center"><span class="tag" style="background:rgba(255,255,255,.12);color:#fff;font-size:2mm">Released</span></div>
+</div></div>
+
+<!-- 18 EMAIL SIGNATURE (screen, 600x170 px) -->
+<div class="ab" id="email-signature" data-trim="px600x150" style="width:600px;height:150px;margin:10mm"><div class="trim" style="inset:0;padding:24px;display:flex;gap:22px;align-items:flex-start">
+  <img src="logo/mark-charcoal.svg" style="width:58px;margin-top:4px">
+  <div style="border-left:1px solid #E4E3E3;padding-left:22px;display:grid;gap:4px;font-size:14px;color:#5C6B6C">
+    <b style="font-weight:500;color:#222F30;font-size:16px">Firstname Lastname</b>
+    <span style="font:400 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#8B8F86">Job title · Mustard Bio</span>
+    <span>name@company-domain · +000 000 000 0000</span>
+    <span style="color:#8B8F86;font-size:12px">The intelligence layer for the pharmaceutical factories of the future.</span>
+  </div>
+</div></div>
+</body>

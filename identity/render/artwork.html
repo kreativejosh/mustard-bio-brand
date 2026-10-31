@@ -1,0 +1,196 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
+<style>
+@font-face{font-family:"Plex Local";src:url(fonts/ibm-plex-sans-latin-400-normal.woff) format("woff");font-weight:400}
+@font-face{font-family:"Plex Local";src:url(fonts/ibm-plex-sans-latin-500-normal.woff) format("woff");font-weight:500}
+@font-face{font-family:"Plex Mono Local";src:url(fonts/ibm-plex-mono-latin-400-normal.woff) format("woff");font-weight:400}
+:root{--ink:#222F30;--deep:#445E5F;--sage:#C9CBBE;--lime:#A7E26E;--mint:#CEF79E;--off:#F7F7F5;--stone:#E7E8E1;--g1:#EEEEEE;
+--sans:"IBM Plex Sans","Plex Local",system-ui,sans-serif;--mono:"IBM Plex Mono","Plex Mono Local",ui-monospace,monospace}
+*{box-sizing:border-box;margin:0}
+body{background:#888;font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+.ab{position:relative;overflow:hidden;margin:20px}
+.mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.04em}
+.tag{display:inline-flex;align-items:center;gap:.7em;background:#fff;border-radius:.35em;padding:.45em .8em;font-family:var(--mono);text-transform:uppercase;letter-spacing:.04em}
+.tag i{width:.62em;height:.62em;background:var(--lime);display:block}
+.tag.dark{background:rgba(255,255,255,.1);color:#fff}
+.h{font-weight:400;letter-spacing:-.03em;line-height:1}
+.mute{color:var(--sage)}
+.btn{display:inline-flex;align-items:stretch;font-family:var(--mono);text-transform:uppercase;letter-spacing:.04em}
+.btn b{font-weight:400;background:var(--ink);color:#fff;padding:.95em 1.3em;border-radius:.5em 0 0 .5em;clip-path:polygon(0 0,100% 0,calc(100% - .45em) 100%,0 100%);padding-right:1.6em}
+.btn s{text-decoration:none;background:var(--mint);color:var(--ink);padding:.95em 1.1em;border-radius:0 .5em .5em 0;margin-left:-.1em;clip-path:polygon(.45em 0,100% 0,100% 100%,0 100%);padding-left:1.3em}
+.cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rule{display:flex;align-items:flex-end;gap:var(--p,10px)}
+.rule span{display:block;width:var(--w,2px);background:currentColor}
+</style>
+<body>
+
+<!-- BUSINESS CARD FRONT 85x55 @ ~12.35px/mm -->
+<div class="ab" id="card-front" style="width:1050px;height:680px;background:var(--ink);color:#fff">
+  <img src="logo/primary-white-dose.svg" style="position:absolute;left:84px;top:84px;width:520px">
+  <div class="mono" style="position:absolute;left:84px;bottom:76px;font-size:22px;color:var(--sage);line-height:1.5">The intelligence layer for the<br>pharmaceutical factories of the future</div>
+  <img src="logo/mark-white-dose.svg" style="position:absolute;right:20px;bottom:-30px;width:560px;opacity:.08">
+</div>
+
+<!-- BUSINESS CARD BACK -->
+<div class="ab" id="card-back" style="width:1050px;height:680px;background:var(--off)">
+  <div style="position:absolute;left:84px;top:84px">
+    <div class="h" style="font-size:54px">Firstname Lastname</div>
+    <div class="mono" style="font-size:22px;margin-top:20px;color:var(--deep)">Job title</div>
+  </div>
+  <div style="position:absolute;left:84px;bottom:84px;display:grid;grid-template-columns:auto 1fr;gap:12px 28px;font-size:25px">
+    <span class="mono" style="font-size:19px;color:#8b8f86;padding-top:4px">E</span><span>name@company-domain</span>
+    <span class="mono" style="font-size:19px;color:#8b8f86;padding-top:4px">T</span><span>+000 000 000 0000</span>
+    <span class="mono" style="font-size:19px;color:#8b8f86;padding-top:4px">W</span><span>website-domain</span>
+  </div>
+    <div class="rule" style="position:absolute;right:84px;bottom:84px;--p:11px;--w:3px;color:var(--ink);height:120px">
+    <span style="height:30%"></span><span style="height:100%"></span><span style="height:85%"></span><span style="height:70%"></span><span style="height:55%"></span><span style="height:40%;width:7px;background:var(--lime)"></span><span style="height:55%"></span><span style="height:70%"></span><span style="height:85%"></span><span style="height:100%"></span><span style="height:30%"></span>
+  </div>
+</div>
+
+<!-- FLYER A4 -->
+<div class="ab" id="flyer" style="width:1240px;height:1754px;background:var(--off)">
+  <div style="position:absolute;left:72px;top:72px;right:72px;display:flex;justify-content:space-between;align-items:center">
+    <div style="background:#fff;border-radius:14px;padding:22px 28px"><img src="logo/primary-charcoal.svg" style="width:330px;display:block"></div>
+    <span class="tag" style="font-size:22px"><i></i>Intelligent manufacturing</span>
+  </div>
+  <div class="h" style="position:absolute;left:72px;right:72px;top:250px;font-size:112px;text-wrap:balance">The intelligence layer for the <span class="mute">pharmaceutical factories of the future.</span></div>
+  <div style="position:absolute;left:72px;right:72px;top:800px;height:600px;border-radius:24px;overflow:hidden"><img class="cover" src="final/capsule-dark.png" style="object-position:50% 50%"></div>
+  <div style="position:absolute;left:72px;right:72px;top:1450px;display:grid;grid-template-columns:1fr 1fr;gap:48px;font-size:25px;line-height:1.35;color:#3c4a4b">
+    <div><div class="mono" style="font-size:19px;margin-bottom:14px;color:var(--ink)">01 Commercial manufacturing</div>Produce medicines for pharmaceutical companies and brands through contract and white-label manufacturing.</div>
+    <div><div class="mono" style="font-size:19px;margin-bottom:14px;color:var(--ink)">02 Technology development</div>Deploy, test, and continuously improve manufacturing software and automation systems in real-world production environments.</div>
+  </div>
+  <div class="mono" style="position:absolute;left:72px;bottom:48px;font-size:17px;color:#8b8f86">website-domain</div>
+  <div class="btn" style="position:absolute;right:72px;bottom:36px;font-size:19px"><b>Work with us</b><s>→</s></div>
+</div>
+
+<!-- BILLBOARD 48 sheet 3:1 -->
+<div class="ab" id="billboard" style="width:3000px;height:1000px;background:var(--ink)">
+  <img class="cover" src="final/flow-wide.png">
+  <img src="final/capsule-dark-square.png" style="position:absolute;right:120px;top:-120px;width:1240px;mix-blend-mode:screen;opacity:0">
+  <div style="position:absolute;right:0;top:0;bottom:0;width:1300px;overflow:hidden"><img class="cover" src="final/capsule-dark-square.png" style="-webkit-mask-image:radial-gradient(closest-side,#000 70%,transparent);mask-image:radial-gradient(closest-side,#000 70%,transparent)"></div>
+  <div class="h" style="position:absolute;left:130px;top:150px;font-size:236px;color:#fff;letter-spacing:-.035em">Measured,<br><span style="color:var(--mint)">not guessed.</span></div>
+  <img src="logo/primary-white-dose.svg" style="position:absolute;left:130px;bottom:110px;width:820px">
+</div>
+
+<!-- POSTER portrait (bus shelter / facility) -->
+<div class="ab" id="poster" style="width:1200px;height:1800px;background:var(--off)">
+  <img src="final/helix-portrait.png" style="position:absolute;left:0;top:640px;width:100%;height:1160px;object-fit:cover;object-position:50% 40%">
+  <span class="tag" style="position:absolute;left:80px;top:80px;font-size:24px"><i></i>Vision</span>
+  <div class="h" style="position:absolute;left:80px;right:80px;top:170px;font-size:84px;line-height:1.04;text-wrap:balance">The intelligence layer powering the next generation of <span class="mute">pharmaceutical factories worldwide.</span></div>
+  <div style="position:absolute;left:80px;bottom:80px;background:#fff;border-radius:16px;padding:26px 32px"><img src="logo/primary-charcoal.svg" style="width:400px;display:block"></div>
+</div>
+
+<!-- CARTON FRONT (white-label: partner brand leads, Mustard Bio as manufacturer) -->
+<div class="ab" id="carton-front" style="width:1000px;height:620px;background:#fff">
+  <div style="position:absolute;left:60px;top:56px" class="mono"><span style="font-size:18px;color:#8b8f86">Partner brand</span></div>
+  <div style="position:absolute;left:60px;top:150px">
+    <div class="h" style="font-size:78px">Product Name</div>
+    <div style="font-size:34px;margin-top:14px;color:var(--deep)">Tablets 000 mg</div>
+    <div class="mono" style="font-size:17px;margin-top:22px;color:#8b8f86">00 tablets · Placeholder copy</div>
+  </div>
+  <div class="rule" style="position:absolute;right:60px;top:150px;height:230px;--p:15px;--w:4px;color:var(--sage)">
+    <span style="height:30%"></span><span style="height:100%"></span><span style="height:85%"></span><span style="height:70%"></span><span style="height:55%"></span><span style="height:40%;width:9px;background:var(--lime)"></span><span style="height:55%"></span><span style="height:70%"></span><span style="height:85%"></span><span style="height:100%"></span><span style="height:30%"></span>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:96px;background:var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 60px">
+    <div style="display:flex;align-items:center;gap:22px"><span class="mono" style="color:var(--sage);font-size:16px">Manufactured by</span><img src="logo/primary-white-dose.svg" style="height:36px"></div>
+    <span class="mono" style="color:#fff;font-size:18px">0 × 00</span>
+  </div>
+</div>
+<div class="ab" id="carton-side" style="width:1000px;height:240px;background:#fff">
+  <div style="position:absolute;left:60px;top:40px;display:grid;grid-template-columns:repeat(3,auto);gap:10px 60px" class="mono">
+    <span style="font-size:15px;color:#8b8f86">Batch</span><span style="font-size:15px;color:#8b8f86">Mfg</span><span style="font-size:15px;color:#8b8f86">Exp</span>
+    <span style="font-size:24px">MB-0000-00</span><span style="font-size:24px">00/0000</span><span style="font-size:24px">00/0000</span>
+  </div>
+  <div style="position:absolute;right:60px;top:40px;display:flex;gap:3px;height:120px;align-items:stretch">
+    <script>document.write(Array.from({length:44},(_,i)=>`<span style="width:${[2,4,2,6,2,2,4][i%7]}px;background:#222F30"></span>`).join(''))</script>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:46px;background:var(--lime)"></div>
+</div>
+<div class="ab" id="carton-end" style="width:620px;height:240px;background:#fff">
+  <img src="logo/mark-small-charcoal.svg" style="position:absolute;left:50%;top:50%;width:90px;transform:translate(-50%,-62%)">
+  <div style="position:absolute;left:0;right:0;bottom:0;height:46px;background:var(--lime)"></div>
+</div>
+<div class="ab" id="carton-top" style="width:1000px;height:240px;background:var(--ink)">
+  <div class="h" style="position:absolute;left:60px;top:70px;font-size:56px;color:#fff">Product Name <span style="color:var(--sage)">000 mg</span></div>
+</div>
+
+<!-- BLISTER FOIL -->
+<div class="ab" id="blister-foil" style="width:1000px;height:480px;background:linear-gradient(135deg,#e9ece9,#cfd4d2 40%,#f2f4f3 60%,#c8cecc)">
+  <script>
+  let h='';for(let r=0;r<2;r++)for(let c=0;c<5;c++){h+=`<div style="position:absolute;left:${70+c*180}px;top:${60+r*200}px;width:140px;height:140px;font:500 12px var(--mono);color:#445E5F;text-transform:uppercase;letter-spacing:.04em;line-height:1.5">Product Name<br>000 mg<br><span style="color:#222F30">Mustard Bio</span></div>`}
+  document.write(h)</script>
+</div>
+
+<!-- BOTTLE WRAP (UV: u around, v up) -->
+<div class="ab" id="bottle-wrap" style="width:2048px;height:2048px;background:var(--ink)">
+  <img src="logo/primary-white-dose.svg" style="position:absolute;left:1024px;top:1080px;width:1450px;transform:translate(-50%,-50%) rotate(-90deg)">
+</div>
+<div class="ab" id="bottle-wrap-light" style="width:2048px;height:2048px;background:var(--off)">
+  <img src="logo/primary-charcoal.svg" style="position:absolute;left:1024px;top:1080px;width:1450px;transform:translate(-50%,-50%) rotate(-90deg)">
+</div>
+
+<!-- WRISTBANDS -->
+<div class="ab" id="band-lime" style="width:2400px;height:160px;background:var(--lime);display:flex;align-items:center;gap:60px;padding-left:60px;white-space:nowrap">
+  <script>document.write(Array.from({length:4},()=>`<img src="logo/mark-small-charcoal.svg" style="height:70px"><span class="mono" style="font-size:52px;color:#222F30">Measured, not guessed</span>`).join(''))</script>
+</div>
+<div class="ab" id="band-ink" style="width:2400px;height:160px;background:var(--ink);display:flex;align-items:center;gap:60px;padding-left:60px;white-space:nowrap">
+  <script>document.write(Array.from({length:4},()=>`<img src="logo/mark-small-white.svg" style="height:70px"><span class="mono" style="font-size:52px;color:#fff">Mustard Bio</span>`).join(''))</script>
+</div>
+
+<!-- ID BADGE -->
+<div class="ab" id="badge" style="width:640px;height:1000px;background:#fff">
+  <div style="position:absolute;left:0;right:0;top:0;height:380px;background:var(--ink)"><img class="cover" src="final/flow-dark.png" style="opacity:.9"></div>
+  <div style="position:absolute;left:290px;top:60px;width:60px;height:14px;border-radius:7px;background:#fff;opacity:.9"></div>
+  <img src="logo/primary-white-dose.svg" style="position:absolute;left:50px;top:150px;width:400px">
+  <div style="position:absolute;left:50px;top:290px;width:200px;height:200px;border-radius:20px;background:var(--stone);border:8px solid #fff;display:grid;place-items:center;font-size:72px;color:var(--deep)">FL</div>
+  <div style="position:absolute;left:50px;top:540px">
+    <div class="h" style="font-size:52px">Firstname<br>Lastname</div>
+    <div class="mono" style="font-size:20px;margin-top:20px;color:var(--deep)">Job title</div>
+  </div>
+  <span class="tag" style="position:absolute;left:50px;bottom:110px;font-size:20px;background:var(--off)"><i></i>Access · Zone 00</span>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:60px;background:var(--lime)"></div>
+</div>
+
+<!-- FACADE SIGN -->
+<div class="ab" id="facade-sign" style="width:2400px;height:520px;background:var(--ink)">
+  <img src="logo/primary-white-dose.svg" style="position:absolute;left:50%;top:50%;width:1900px;transform:translate(-50%,-50%)">
+</div>
+
+<!-- WAYFINDING -->
+<div class="ab" id="wayfinding" style="width:900px;height:1200px;background:#fff">
+  <div style="position:absolute;inset:0 0 auto 0;height:140px;background:var(--ink);display:flex;align-items:center;padding:0 56px"><img src="logo/primary-white-dose.svg" style="height:50px"></div>
+  <script>
+  const rows=[['Zone A','Production area','→'],['Zone B','Quality laboratory','↑'],['Zone C','Packaging','←'],['Zone D','Warehouse','↓'],['Zone E','Control room','→']];
+  document.write(rows.map((r,i)=>`<div style="position:absolute;left:56px;right:56px;top:${190+i*190}px;height:160px;border-top:2px solid #E4E3E3;display:flex;align-items:center;justify-content:space-between">
+   <div><div class="mono" style="font-size:22px;color:#8b8f86;display:flex;align-items:center;gap:12px"><i style="width:14px;height:14px;background:${i==0?'#A7E26E':'#C9CBBE'};display:block"></i>${r[0]}</div><div class="h" style="font-size:60px;margin-top:14px">${r[1]}</div></div>
+   <div style="width:96px;height:96px;border-radius:14px;background:${i==0?'#CEF79E':'#F7F7F5'};display:grid;place-items:center;font-size:52px">${r[2]}</div></div>`).join(''))</script>
+</div>
+
+<!-- LETTERHEAD -->
+<div class="ab" id="letterhead" style="width:1240px;height:1754px;background:#fff">
+  <img src="logo/primary-charcoal.svg" style="position:absolute;left:100px;top:100px;width:380px">
+  <div class="mono" style="position:absolute;right:100px;top:108px;text-align:right;font-size:16px;line-height:1.7;color:#8b8f86">Street address<br>City, Country<br>website-domain</div>
+  <div style="position:absolute;left:100px;top:330px;width:700px;font-size:22px;line-height:1.6;color:#3c4a4b">
+    <div class="mono" style="font-size:16px;color:#8b8f86;margin-bottom:40px">00 Month 0000</div>
+    <div style="margin-bottom:28px">Dear Name,</div>
+    <div style="height:14px;background:var(--g1);border-radius:3px;margin:16px 0;width:100%"></div><div style="height:14px;background:var(--g1);border-radius:3px;margin:16px 0;width:94%"></div><div style="height:14px;background:var(--g1);border-radius:3px;margin:16px 0;width:98%"></div><div style="height:14px;background:var(--g1);border-radius:3px;margin:16px 0;width:60%"></div>
+    <div style="height:14px;background:var(--g1);border-radius:3px;margin:46px 0 16px;width:97%"></div><div style="height:14px;background:var(--g1);border-radius:3px;margin:16px 0;width:90%"></div><div style="height:14px;background:var(--g1);border-radius:3px;margin:16px 0;width:72%"></div>
+  </div>
+  <div style="position:absolute;left:100px;right:100px;bottom:90px;border-top:1px solid var(--g1);padding-top:24px;display:flex;justify-content:space-between" class="mono"><span style="font-size:15px;color:#8b8f86">Mustard Bio</span><span style="font-size:15px;color:#8b8f86">The intelligence layer for the pharmaceutical factories of the future</span></div>
+  <div style="position:absolute;left:0;bottom:0;width:100%;height:14px;background:var(--lime)"></div>
+</div>
+
+<!-- NOTEBOOK COVER -->
+<div class="ab" id="notebook" style="width:900px;height:1240px;background:var(--ink)">
+  <img src="logo/mark-white-dose.svg" style="position:absolute;left:80px;top:90px;width:300px">
+  <div class="h" style="position:absolute;left:80px;bottom:120px;font-size:96px;color:#fff">Measured,<br><span style="color:var(--sage)">not guessed.</span></div>
+  <div class="mono" style="position:absolute;left:80px;bottom:60px;font-size:18px;color:var(--sage)">Mustard Bio</div>
+</div>
+
+<!-- TOTE / TEE PRINT (transparent) -->
+<div class="ab" id="mug-wrap" style="width:2048px;height:860px;background:#fff">
+  <img src="logo/primary-charcoal.svg" style="position:absolute;left:1536px;top:50%;width:720px;transform:translate(-50%,-50%)">
+  <div class="rule" style="position:absolute;left:512px;top:50%;transform:translate(-50%,-50%);height:360px;--p:34px;--w:10px;color:#222F30">
+    <span style="height:30%"></span><span style="height:100%"></span><span style="height:85%"></span><span style="height:70%"></span><span style="height:55%"></span><span style="height:40%;width:22px;background:var(--lime)"></span><span style="height:55%"></span><span style="height:70%"></span><span style="height:85%"></span><span style="height:100%"></span><span style="height:30%"></span>
+  </div>
+</div>
+</body>

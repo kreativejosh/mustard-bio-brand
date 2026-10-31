@@ -1,0 +1,14 @@
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"./lib/three.module.min.js","three/addons/":"./lib/addons/"}}</script>
+<script type=module>
+import * as THREE from 'three';
+const q=new URLSearchParams(location.search); const W=+q.get('w')||1600,H=+q.get('h')||1200;
+const mod=await import(q.get('lib')||'./scenes.js');
+const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true}); r.setPixelRatio(1); r.setSize(W,H);
+r.toneMapping=THREE.ACESFilmicToneMapping; r.toneMappingExposure=+(q.get('exp')||1); r.outputColorSpace=THREE.SRGBColorSpace;
+document.body.appendChild(r.domElement);
+const S=await mod.SCENES[q.get('s')]({renderer:r,aspect:W/H,variant:q.get('v'),THREE});
+window.__frame=(t)=>{S.update&&S.update(t); r.render(S.scene,S.camera); return r.domElement.toDataURL('image/png');};
+await new Promise(res=>setTimeout(res,300));
+window.__frame(+(q.get('t')||1.2)); window.__ready=true;
+</script>

@@ -1,0 +1,64 @@
+<!doctype html><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+*{margin:0;box-sizing:border-box}
+body{background:transparent;font-family:"IBM Plex Sans",sans-serif}
+.d{position:relative;overflow:hidden;margin:20px;background:transparent}
+.m{font-family:"IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.06em}
+.c{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+</style>
+<body>
+<!-- tee chest print, white tee (left chest, small lockup) -->
+<div class="d" id="tee-chest" style="width:1600px;height:300px"><img class="c" src="logo/primary-charcoal.svg" style="width:1500px"></div>
+<!-- tee front print, charcoal tee -->
+<div class="d" id="tee-big" style="width:1400px;height:1400px">
+  <img src="logo/mark-white-dose.svg" style="position:absolute;left:50%;top:60px;width:560px;transform:translateX(-50%)">
+  <div style="position:absolute;left:0;right:0;top:520px;text-align:center;color:#fff;font-size:190px;letter-spacing:-.035em;line-height:1">Measured,<br><span style="color:#CEF79E">not guessed.</span></div>
+</div>
+<!-- tote print -->
+<div class="d" id="tote-print" style="width:1400px;height:1400px">
+  <img src="logo/mark-charcoal.svg" class="c" style="width:900px;top:42%">
+  <div class="m" style="position:absolute;left:0;right:0;top:1060px;text-align:center;font-size:70px;color:#222F30">Measured, not guessed</div>
+</div>
+<!-- bottle wraps (u around, v up): logo reads bottom-to-top at u=.5 -->
+<div class="d" id="bottle-white" style="width:2048px;height:2048px"><img src="logo/primary-white-dose.svg" class="c" style="width:1450px;top:1080px;transform:translate(-50%,-50%) rotate(-90deg)"></div>
+<div class="d" id="bottle-ink" style="width:2048px;height:2048px"><img src="logo/primary-charcoal.svg" class="c" style="width:1450px;top:1080px;transform:translate(-50%,-50%) rotate(-90deg)"></div>
+<!-- mug wrap: lockup on the side facing camera (u=.5), scale rule opposite -->
+<!-- print sits at u=0.75: 90 degrees from the handle -->
+<div class="d" id="mug-wrap" style="width:2048px;height:860px"><img src="logo/primary-charcoal.svg" class="c" style="width:760px;left:75%"></div>
+<!-- print sits at u=0.75: 90 degrees from the handle -->
+<div class="d" id="mug-wrap-white" style="width:2048px;height:860px"><img src="logo/primary-white-dose.svg" class="c" style="width:760px;left:75%"></div>
+<!-- wristband deboss text (repeats around) -->
+<div class="d" id="band-text" style="width:4096px;height:256px;display:flex;align-items:center;justify-content:space-around;padding:0 60px;white-space:nowrap">
+  <img src="logo/mark-small-charcoal.svg" style="height:150px"><span class="m" style="font-size:132px;font-weight:500;letter-spacing:.1em;color:#222F30">Measured, not guessed</span>
+  <img src="logo/mark-small-charcoal.svg" style="height:150px"><span class="m" style="font-size:132px;font-weight:500;letter-spacing:.1em;color:#222F30">Mustard Bio</span>
+</div>
+<!-- lanyard print (repeats along length) -->
+<div class="d" id="lanyard" style="width:4096px;height:256px;display:flex;align-items:center;justify-content:space-around;white-space:nowrap">
+  <img src="logo/mark-charcoal.svg" style="height:150px"><span class="m" style="font-size:118px;font-weight:500;letter-spacing:.14em;color:#222F30">Mustard Bio</span>
+  <img src="logo/mark-charcoal.svg" style="height:150px"><span class="m" style="font-size:118px;font-weight:500;letter-spacing:.14em;color:#222F30">Mustard Bio</span>
+</div>
+<!-- cap front embroidery -->
+<div class="d" id="cap-front" style="width:1024px;height:1024px"><img src="logo/mark-white-dose.svg" class="c" style="width:760px"></div>
+
+<!-- ghost-mannequin tee: front chest mark, back vertical lockup -->
+<div class="d" id="tee-front-mark" style="width:800px;height:520px"><img class="c" src="logo/mark-charcoal.svg" style="width:760px"></div>
+<div class="d" id="tee-front-mark-white" style="width:800px;height:520px"><img class="c" src="logo/mark-white-dose.svg" style="width:760px"></div>
+<div class="d" id="tee-back" style="width:900px;height:2400px">
+  <img src="logo/primary-charcoal.svg" style="position:absolute;left:330px;top:1200px;width:2300px;transform:translate(-50%,-50%) rotate(-90deg)">
+  <div class="m" style="position:absolute;left:690px;top:1200px;transform:translate(-50%,-50%) rotate(-90deg);font-size:92px;color:#222F30;white-space:nowrap">Measured, not guessed</div>
+</div>
+<div class="d" id="tee-back-white" style="width:900px;height:2400px">
+  <img src="logo/primary-white-dose.svg" style="position:absolute;left:330px;top:1200px;width:2300px;transform:translate(-50%,-50%) rotate(-90deg)">
+  <div class="m" style="position:absolute;left:690px;top:1200px;transform:translate(-50%,-50%) rotate(-90deg);font-size:92px;color:#CEF79E;white-space:nowrap">Measured, not guessed</div>
+</div>
+
+<div class="d" id="tote-wide" style="width:2400px;height:820px">
+  <img src="logo/primary-charcoal.svg" style="position:absolute;left:40px;top:60px;width:2320px">
+  <div class="m" style="position:absolute;left:60px;bottom:40px;font-size:64px;color:#222F30">Measured, not guessed</div>
+</div>
+<div class="d" id="tote-wide-white" style="width:2400px;height:820px">
+  <img src="logo/primary-white-dose.svg" style="position:absolute;left:40px;top:60px;width:2320px">
+  <div class="m" style="position:absolute;left:60px;bottom:40px;font-size:64px;color:#CEF79E">Measured, not guessed</div>
+</div>
+</body>
