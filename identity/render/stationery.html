@@ -1,8 +1,14 @@
 <!doctype html><meta charset="utf-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
+<!-- static IBM Plex (SIL OFL, source/fonts/) so PDFs embed real TrueType outlines, not Type 3 -->
+<style>
+@font-face{font-family:"IBM Plex Sans";font-weight:400;src:url(fonts/ibm-plex-sans-latin-400-normal.woff) format("woff")}
+@font-face{font-family:"IBM Plex Sans";font-weight:500;src:url(fonts/ibm-plex-sans-latin-500-normal.woff) format("woff")}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;src:url(fonts/ibm-plex-mono-latin-400-normal.woff) format("woff")}
+@font-face{font-family:"IBM Plex Mono";font-weight:500;src:url(fonts/ibm-plex-mono-latin-500-normal.woff) format("woff")}
+</style>
 <style>
 /* Each .ab is bleed size (trim + 3mm each side). .trim is the finished size; content lives inside it. */
-:root{--ink:#222F30;--deep:#445E5F;--sage:#C9CBBE;--lime:#A7E26E;--mint:#CEF79E;--off:#F7F7F5;--stone:#E7E8E1;--g1:#EEEEEE;--g2:#E4E3E3;--t2:#5C6B6C;--t3:#445E5F;
+:root{--ink:#222F30;--deep:#445E5F;--sage:#C9CBBE;--lime:#A7E26E;--mint:#CEF79E;--off:#F7F7F5;--stone:#E7E8E1;--g1:#EEEEEE;--g2:#E4E3E3;--t2:#3A4B4C;--t3:#33494A;--mute:#66756F;
 --sans:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
 *{box-sizing:border-box;margin:0;padding:0}
 @page{margin:0}
@@ -12,21 +18,22 @@ body.solo{background:transparent}
 body.solo .ab{margin:0}
 .trim{position:absolute;inset:3mm;overflow:visible}
 .mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
-.lab{font:500 2.3mm/1.45 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:#445E5F}
+.lab{font:500 2.3mm/1.45 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--t3)}
 .k{color:var(--ink)}
 .h{font-weight:400;letter-spacing:-.03em;line-height:1.02}
-.mute{color:var(--sage)}
-.tag{display:inline-flex;align-items:center;gap:1.6mm;background:var(--off);border-radius:.8mm;padding:1.1mm 1.8mm;font:400 2.1mm/1 var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.mute{color:var(--mute)}
+.dk .mute{color:var(--sage)}
+.tag{display:inline-flex;align-items:center;gap:1.6mm;background:var(--off);border-radius:.8mm;padding:1.2mm 2mm;font:500 2.4mm/1 var(--mono);color:var(--ink);text-transform:uppercase;letter-spacing:.06em}
 .tag::before{content:"";width:1.5mm;height:1.5mm;background:var(--lime)}
 .rule{display:flex;align-items:flex-end}
 .rule span{display:block;background:currentColor}
 .abs{position:absolute}
 .cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .line{height:1.6mm;background:var(--g1);border-radius:.4mm;margin:2.6mm 0}
-.copy{font-size:3.5mm;line-height:1.55;color:#3c4a4b;margin:0 0 3.5mm}
+.copy{font-size:3.5mm;line-height:1.55;color:#2B393A;margin:0 0 3.5mm}
 table{border-collapse:collapse;width:100%}
 td,th{text-align:left;padding:2.2mm 0;border-bottom:.2mm solid var(--g2);font-size:3mm;vertical-align:top}
-th{font:400 2mm/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--t3);border-bottom:.3mm solid var(--ink)}
+th{font:500 2.2mm/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--t3);border-bottom:.3mm solid var(--ink)}
 td.r,th.r{text-align:right}
 </style>
 <script>
@@ -38,7 +45,7 @@ function rule(h, w, pitch, colour, doseColour){return `<div class="rule" style="
 <!-- 01 BUSINESS CARD FRONT 85x55 -->
 <div class="ab" id="business-card-front" data-trim="85x55" style="width:91mm;height:61mm;background:#222F30"><div class="trim" style="color:#fff">
   <img src="logo/primary-white-dose.svg" class="abs" style="left:7mm;top:7mm;width:42mm">
-  <div class="lab abs" style="left:7mm;bottom:6.5mm;color:var(--sage);font-size:1.75mm">The intelligence layer for the<br>pharmaceutical factories of the future</div>
+  <div class="lab abs" style="left:7mm;bottom:6.5mm;color:var(--sage);font-size:2mm">The intelligence layer for the<br>pharmaceutical factories of the future</div>
   <div class="abs" style="right:7mm;bottom:7mm"><script>document.write(rule(13,.45,1.15,'rgba(255,255,255,.22)','#A7E26E'))</script></div>
 </div></div>
 
@@ -83,19 +90,19 @@ function rule(h, w, pitch, colour, doseColour){return `<div class="rule" style="
 <div class="ab" id="envelope-dl" data-trim="220x110" style="width:226mm;height:116mm"><div class="trim">
   <img src="logo/primary-charcoal.svg" class="abs" style="left:12mm;top:11mm;width:44mm">
   <div class="lab abs" style="left:12mm;top:24mm">Return: Street address, City, Country</div>
-  <div class="abs" style="left:100mm;top:52mm;width:90mm;font-size:3.6mm;line-height:1.5;color:var(--t3)">Recipient name<br>Organisation<br>Address line<br>City, Country</div>
+  <div class="abs" style="left:100mm;top:52mm;width:90mm;font-size:3.6mm;line-height:1.5;color:var(--ink)">Recipient name<br>Organisation<br>Address line<br>City, Country</div>
 </div><div class="abs" style="left:0;top:0;bottom:0;width:8mm;background:var(--lime)"></div></div>
 
 <!-- 07 C4 ENVELOPE 324x229 -->
 <div class="ab" id="envelope-c4" data-trim="324x229" style="width:330mm;height:235mm;background:#222F30"><div class="trim" style="color:#fff">
   <img src="logo/primary-white-dose.svg" class="abs" style="left:18mm;top:17mm;width:66mm">
-  <div class="abs" style="left:150mm;top:110mm;width:150mm;height:62mm;background:#fff;border-radius:2mm;padding:9mm;font-size:4.2mm;line-height:1.55;color:var(--t3)">Recipient name<br>Organisation<br>Address line<br>City, Country</div>
+  <div class="abs" style="left:150mm;top:110mm;width:150mm;height:62mm;background:#fff;border-radius:2mm;padding:9mm;font-size:4.2mm;line-height:1.55;color:var(--ink)">Recipient name<br>Organisation<br>Address line<br>City, Country</div>
   <div class="lab abs" style="left:18mm;bottom:16mm;color:var(--sage)">Return: Street address, City, Country</div>
 </div></div>
 
 <!-- 08 PRESENTATION FOLDER outer spread 440x310 (back | front) -->
-<div class="ab" id="presentation-folder" data-trim="440x310" style="width:446mm;height:316mm;background:#222F30"><div class="trim" style="color:#fff">
-  <img src="final/flow-dark.png" class="abs" style="left:220mm;top:-3mm;width:223mm;height:316mm;object-fit:cover">
+<div class="ab" id="presentation-folder" data-trim="440x310" style="width:446mm;height:316mm;background:#222F30"><div class="trim dk" style="color:#fff">
+  <img src="final8/flow-dark.png" class="abs" style="left:220mm;top:-3mm;width:223mm;height:316mm;object-fit:cover">
   <img src="logo/primary-white-dose.svg" class="abs" style="left:240mm;top:22mm;width:90mm">
   <div class="h abs" style="left:240mm;bottom:40mm;width:170mm;font-size:17mm">The intelligence layer for the <span style="color:var(--mint)">pharmaceutical factories of the future.</span></div>
   <div class="lab abs" style="left:240mm;bottom:22mm;color:var(--sage)">website-domain</div>
@@ -113,7 +120,7 @@ function rule(h, w, pitch, colour, doseColour){return `<div class="rule" style="
 </div></div>
 
 <!-- 10 NOTEBOOK COVER A5 -->
-<div class="ab" id="notebook-cover" data-trim="148x210" style="width:154mm;height:216mm;background:#222F30"><div class="trim" style="color:#fff">
+<div class="ab" id="notebook-cover" data-trim="148x210" style="width:154mm;height:216mm;background:#222F30"><div class="trim dk" style="color:#fff">
   <img src="logo/mark-white-dose.svg" class="abs" style="left:14mm;top:16mm;width:36mm">
   <div class="h abs" style="left:14mm;bottom:24mm;font-size:13mm">Measured,<br><span class="mute">not guessed.</span></div>
   <div class="lab abs" style="left:14mm;bottom:13mm;color:var(--sage)">Mustard Bio</div>
@@ -123,8 +130,8 @@ function rule(h, w, pitch, colour, doseColour){return `<div class="rule" style="
 <div class="ab" id="report-cover" data-trim="210x297" style="width:216mm;height:303mm;background:#F7F7F5"><div class="trim">
   <img src="logo/primary-charcoal.svg" class="abs" style="left:18mm;top:18mm;width:58mm">
   <span class="tag abs" style="right:18mm;top:19mm;background:#fff">Report · 00/0000</span>
-  <div class="h abs" style="left:18mm;right:18mm;top:52mm;font-size:21mm">Report title set in Display 2 <span class="mute">with a second half in sage.</span></div>
-  <div class="abs" style="left:18mm;right:18mm;bottom:40mm;height:120mm;border-radius:4mm;overflow:hidden"><img src="final/capsule-dark.png" class="cover"></div>
+  <div class="h abs" style="left:18mm;right:18mm;top:52mm;font-size:21mm">Report title set in Display 2 <span class="mute">with a muted second half.</span></div>
+  <div class="abs" style="left:18mm;right:18mm;bottom:40mm;height:120mm;border-radius:4mm;overflow:hidden"><img src="final8/capsule-dark.png" class="cover"></div>
   <div class="abs" style="left:18mm;right:18mm;bottom:18mm;display:flex;justify-content:space-between"><span class="lab">Prepared by · Name</span><span class="lab">Confidential · Version 0.0</span></div>
 </div></div>
 
@@ -162,12 +169,12 @@ function rule(h, w, pitch, colour, doseColour){return `<div class="rule" style="
 
 <!-- 14 STAFF ID CARD CR80 54x86 front -->
 <div class="ab" id="staff-id-front" data-trim="54x86" style="width:60mm;height:92mm"><div class="trim">
-  <div class="abs" style="left:-3mm;right:-3mm;top:-3mm;height:33mm;background:var(--ink);overflow:hidden"><img src="final/flow-dark.png" class="cover"></div>
+  <div class="abs" style="left:-3mm;right:-3mm;top:-3mm;height:33mm;background:var(--ink);overflow:hidden"><img src="final8/flow-dark.png" class="cover"></div>
   <div class="abs" style="left:24mm;top:4mm;width:6mm;height:1.6mm;border-radius:.8mm;background:#fff;opacity:.9"></div>
   <img src="logo/primary-white-dose.svg" class="abs" style="left:5mm;top:10mm;width:30mm">
   <div class="abs" style="left:5mm;top:21mm;width:19mm;height:23mm;border-radius:1.6mm;background:var(--stone);border:.8mm solid #fff;display:grid;place-items:center;font-size:6mm;color:var(--deep)">FL</div>
-  <div class="abs" style="left:5mm;top:49mm"><div class="h" style="font-size:4.4mm;line-height:1.1">Firstname<br>Lastname</div><div class="lab" style="margin-top:1.4mm;color:var(--deep);font-size:1.8mm">Job title</div></div>
-  <span class="tag abs" style="left:5mm;bottom:9mm;font-size:1.7mm">Staff · Zone 00</span>
+  <div class="abs" style="left:5mm;top:49mm"><div class="h" style="font-size:4.4mm;line-height:1.1">Firstname<br>Lastname</div><div class="lab" style="margin-top:1.4mm;color:var(--deep);font-size:2mm">Job title</div></div>
+  <span class="tag abs" style="left:5mm;bottom:9mm;font-size:2mm">Staff · Zone 00</span>
   <div class="abs" style="left:-3mm;right:-3mm;bottom:-3mm;height:8mm;background:var(--lime)"></div>
 </div></div>
 
@@ -186,11 +193,11 @@ function rule(h, w, pitch, colour, doseColour){return `<div class="rule" style="
   <div class="abs" style="left:24mm;top:3.5mm;width:6mm;height:1.6mm;border-radius:.8mm;background:#222F30;opacity:.25"></div>
   <div class="h abs" style="left:5mm;top:30mm;font-size:11mm">Visitor</div>
   <div class="abs" style="left:5mm;right:5mm;top:50mm;display:grid;gap:3mm">
-    <div style="border-bottom:.25mm solid rgba(34,47,48,.4);padding-bottom:1mm"><span class="lab k" style="font-size:1.7mm">Name</span></div>
-    <div style="border-bottom:.25mm solid rgba(34,47,48,.4);padding-bottom:1mm"><span class="lab k" style="font-size:1.7mm">Host</span></div>
-    <div style="border-bottom:.25mm solid rgba(34,47,48,.4);padding-bottom:1mm"><span class="lab k" style="font-size:1.7mm">Date</span></div>
+    <div style="border-bottom:.25mm solid rgba(34,47,48,.4);padding-bottom:1mm"><span class="lab k" style="font-size:2mm">Name</span></div>
+    <div style="border-bottom:.25mm solid rgba(34,47,48,.4);padding-bottom:1mm"><span class="lab k" style="font-size:2mm">Host</span></div>
+    <div style="border-bottom:.25mm solid rgba(34,47,48,.4);padding-bottom:1mm"><span class="lab k" style="font-size:2mm">Date</span></div>
   </div>
-  <div class="lab abs k" style="left:5mm;bottom:5mm;font-size:1.7mm">Escort required in production zones</div>
+  <div class="lab abs k" style="left:5mm;bottom:5mm;font-size:2mm">Escort required in production zones</div>
 </div></div>
 
 <!-- 17 STICKER SHEET A6 105x148 -->
@@ -199,18 +206,18 @@ function rule(h, w, pitch, colour, doseColour){return `<div class="rule" style="
   <div class="abs" style="left:55mm;top:8mm;width:42mm;height:42mm;border-radius:50%;background:var(--lime);display:grid;place-items:center"><img src="logo/mark-small-charcoal.svg" style="width:20mm"></div>
   <div class="abs" style="left:8mm;top:57mm;width:89mm;height:20mm;border-radius:10mm;background:#fff;box-shadow:0 0 0 .25mm #E4E3E3;display:grid;place-items:center"><img src="logo/primary-charcoal.svg" style="width:64mm"></div>
   <div class="abs" style="left:8mm;top:84mm;width:89mm;height:16mm;border-radius:2mm;background:var(--mint);display:flex;align-items:center;justify-content:center;font:400 3.4mm var(--mono);letter-spacing:.06em;text-transform:uppercase">Measured, not guessed</div>
-  <div class="abs" style="left:8mm;top:107mm;width:42mm;height:30mm;border-radius:2mm;background:#fff;box-shadow:0 0 0 .25mm #E4E3E3;padding:3mm"><div class="lab k" style="font-size:1.8mm">Batch</div><div style="font:400 3.2mm var(--mono);margin-top:1mm">MB-0000-00</div><div class="lab" style="font-size:1.6mm;margin-top:3mm">QC · Initials · Date</div></div>
+  <div class="abs" style="left:8mm;top:107mm;width:42mm;height:30mm;border-radius:2mm;background:#fff;box-shadow:0 0 0 .25mm #E4E3E3;padding:3mm"><div class="lab k" style="font-size:1.8mm">Batch</div><div style="font:400 3.2mm var(--mono);margin-top:1mm">MB-0000-00</div><div class="lab" style="font-size:1.9mm;margin-top:3mm">QC · Initials · Date</div></div>
   <div class="abs" style="left:55mm;top:107mm;width:42mm;height:30mm;border-radius:2mm;background:var(--ink);display:grid;place-items:center"><span class="tag" style="background:rgba(255,255,255,.12);color:#fff;font-size:2mm">Released</span></div>
 </div></div>
 
 <!-- 18 EMAIL SIGNATURE (screen, 600x170 px) -->
 <div class="ab" id="email-signature" data-trim="px600x150" style="width:600px;height:150px;margin:10mm"><div class="trim" style="inset:0;padding:24px;display:flex;gap:22px;align-items:flex-start">
   <img src="logo/mark-charcoal.svg" style="width:58px;margin-top:4px">
-  <div style="border-left:1px solid #E4E3E3;padding-left:22px;display:grid;gap:4px;font-size:14px;color:#5C6B6C">
+  <div style="border-left:1px solid #E4E3E3;padding-left:22px;display:grid;gap:4px;font-size:14px;color:#3A4B4C">
     <b style="font-weight:500;color:#222F30;font-size:16px">Firstname Lastname</b>
-    <span style="font:400 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#8B8F86">Job title · Mustard Bio</span>
+    <span style="font:400 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#445E5F">Job title · Mustard Bio</span>
     <span>name@company-domain · +000 000 000 0000</span>
-    <span style="color:#8B8F86;font-size:12px">The intelligence layer for the pharmaceutical factories of the future.</span>
+    <span style="color:#596866;font-size:12px">The intelligence layer for the pharmaceutical factories of the future.</span>
   </div>
 </div></div>
 </body>

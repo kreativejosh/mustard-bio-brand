@@ -16,7 +16,8 @@ export default function SectionFiles() {
       <tr><td>3d/</td><td className="wrap">Capsule, glass mark, molecule chain, metaballs, test tubes, flask, tablets, flow grounds</td><td>JPG 1600 px</td></tr>
       <tr><td>motion/</td><td className="wrap">Capsule, glass mark build, flow, metaball, molecule chain, test tubes</td><td>MP4 720p + poster</td></tr>
       <tr><td>render/</td><td className="wrap">Blender Cycles renders: merchandise, 3D brand assets, packaging, facility, stationery overview</td><td>JPG 2400 px</td></tr>
-      <tr><td>stationery/print/</td><td className="wrap">17 stationery items at trim size plus email signature</td><td>PNG 300 dpi + PDF with 3 mm bleed</td></tr>
+      <tr><td>render/8k/</td><td className="wrap">Stationery mockups at full resolution</td><td>JPG 7680 px</td></tr>
+      <tr><td>stationery/print/</td><td className="wrap">17 stationery items at trim size plus email signature</td><td>PDF (RGB + CMYK, 3 mm bleed) + PNG 8K</td></tr>
             <tr><td>art/</td><td className="wrap">Flat print artwork for cards, flyer, poster, letterhead, badge, wayfinding, carton, notebook</td><td>JPG</td></tr>
       <tr><td>fonts/</td><td className="wrap">IBM Plex Sans and Mono, SIL Open Font License</td><td>WOFF</td></tr>
     </tbody></table></div>

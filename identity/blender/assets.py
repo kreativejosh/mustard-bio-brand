@@ -6,7 +6,7 @@ from merch import catmull, flat_shape, ribbon, add_print, floor_paper, powder
 from mathutils import Vector
 
 ART = os.path.join(HERE, '..', 'render', 'art')
-STAT = os.path.join(HERE, '..', 'render', 'stat')
+STAT = os.path.join(HERE, '..', 'render', 'stat8k')  # 8K trim-size PNGs from stat8k.js
 LOGO = os.path.join(HERE, '..', 'render', 'logo')
 
 def group(name, loc=(0, 0, 0), rot=(0, 0, 0)):
@@ -334,9 +334,14 @@ def scene_stat_close(out, w, h, spp, name):
         c = card(f, wmm / 1000, hmm / 1000, t, S(f), None, edge=edge, rough=0.75 if t < 0.001 else 0.4, coat=0.0 if t < 0.001 else 0.4, paper_bump=0.12)
         c.location = (x / 1000, y / 1000, t / 2)
     k = fw / 0.98  # keep light falloff consistent with frame size
-    area_light((cx - 0.9 * k, cy + 0.7 * k, 1.1 * k), (cx, cy, 0), 1.0 * k, 45 * k * k)
-    area_light((cx + 0.9 * k, cy - 0.6 * k, 1.2 * k), (cx, cy, 0), 1.4 * k, 8 * k * k)
+    key = float(os.environ.get('STAT_KEY', 30))  # kept low enough that white paper never clips and grey type keeps its tone
+    # one big soft key almost overhead (even across every sheet) + low fill: paper sits just under clipping
+    area_light((cx - 0.35 * k, cy + 0.3 * k, 1.4 * k), (cx, cy, 0), 2.6 * k, key * k * k)
+    area_light((cx + 0.9 * k, cy - 0.6 * k, 1.2 * k), (cx, cy, 0), 1.6 * k, 6 * k * k)
     ortho_camera((cx, cy, 1.5), (cx, cy, 0.0), fw)
+    if os.environ.get('STAT_BORDER'):  # test a region at full resolution: "xmin,xmax,ymin,ymax" (0-1)
+        r = bpy.context.scene.render; r.use_border = r.use_crop_to_border = True
+        r.border_min_x, r.border_max_x, r.border_min_y, r.border_max_y = map(float, os.environ['STAT_BORDER'].split(','))
     render(out)
 
 for _n in CLOSE:
