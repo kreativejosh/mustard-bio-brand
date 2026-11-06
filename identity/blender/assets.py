@@ -331,7 +331,7 @@ def scene_stat_close(out, w, h, spp, name):
     fw, cx, cy, items = CLOSE[name]
     S = lambda n: os.path.join(STAT, n + '.png')
     for f, wmm, hmm, x, y, t, edge in items:
-        c = card(f, wmm / 1000, hmm / 1000, t, S(f), None, edge=edge, rough=0.75 if t < 0.001 else 0.4, coat=0.0 if t < 0.001 else 0.4, paper_bump=0.12)
+        c = card(f, wmm / 1000, hmm / 1000, t, S(f), None, edge=edge, rough=0.75 if t < 0.001 else 0.55, coat=0.0, paper_bump=0.12)  # silk/matte: a gloss coat mirrors the overhead key and greys dark type
         c.location = (x / 1000, y / 1000, t / 2)
     k = fw / 0.98  # keep light falloff consistent with frame size
     key = float(os.environ.get('STAT_KEY', 30))  # kept low enough that white paper never clips and grey type keeps its tone
@@ -339,9 +339,6 @@ def scene_stat_close(out, w, h, spp, name):
     area_light((cx - 0.35 * k, cy + 0.3 * k, 1.4 * k), (cx, cy, 0), 2.6 * k, key * k * k)
     area_light((cx + 0.9 * k, cy - 0.6 * k, 1.2 * k), (cx, cy, 0), 1.6 * k, 6 * k * k)
     ortho_camera((cx, cy, 1.5), (cx, cy, 0.0), fw)
-    if os.environ.get('STAT_BORDER'):  # test a region at full resolution: "xmin,xmax,ymin,ymax" (0-1)
-        r = bpy.context.scene.render; r.use_border = r.use_crop_to_border = True
-        r.border_min_x, r.border_max_x, r.border_min_y, r.border_max_y = map(float, os.environ['STAT_BORDER'].split(','))
     render(out)
 
 for _n in CLOSE:

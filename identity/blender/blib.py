@@ -229,6 +229,9 @@ def card(name, w, h, t, front_img=None, back_img=None, edge='#ffffff', rough=0.6
     return o
 
 def render(path):
+    if os.environ.get('STAT_BORDER'):  # render one region at full resolution: "xmin,xmax,ymin,ymax" (0-1); see strips.py
+        r = bpy.context.scene.render; r.use_border = r.use_crop_to_border = True
+        r.border_min_x, r.border_max_x, r.border_min_y, r.border_max_y = map(float, os.environ['STAT_BORDER'].split(','))
     bpy.context.scene.render.filepath = path
     bpy.ops.render.render(write_still=True)
 

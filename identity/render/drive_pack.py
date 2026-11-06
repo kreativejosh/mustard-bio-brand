@@ -45,12 +45,12 @@ fonts = os.path.abspath(os.path.join(HERE, '..', '..', 'source', 'fonts'))
 rows = ''.join(f'<tr><td>{i:02d}</td><td>{html.escape(n)}</td><td>{html.escape(s)}</td></tr>' for i, (_, n, s) in enumerate(ITEMS, 1))
 ff = ''.join(f'@font-face{{font-family:"P{f}";font-weight:{w};src:url("file://{fonts}/ibm-plex-{f}-latin-{w}-normal.woff")}}' for f in ('sans', 'mono') for w in (400, 500))
 doc = f'''<!doctype html><meta charset="utf-8"><style>{ff}
-@page{{size:A4;margin:18mm 20mm}}body{{font:400 10pt/1.5 "Psans";color:#222F30;-webkit-print-color-adjust:exact}}
-h1{{font-weight:400;font-size:24pt;letter-spacing:-.02em;margin:0 0 2mm}}h2{{font:500 8pt "Pmono";letter-spacing:.06em;text-transform:uppercase;margin:9mm 0 2.5mm;color:#33494A}}
+@page{{size:A4;margin:14mm 18mm}}body{{font:400 9pt/1.4 "Psans";color:#222F30;-webkit-print-color-adjust:exact}}
+h1{{font-weight:400;font-size:24pt;letter-spacing:-.02em;margin:0 0 2mm}}h2{{font:500 8pt "Pmono";letter-spacing:.06em;text-transform:uppercase;margin:5mm 0 1.5mm;color:#33494A}}
 .k{{font:500 8pt "Pmono";letter-spacing:.06em;text-transform:uppercase;color:#33494A}}table{{border-collapse:collapse;width:100%}}
-td,th{{text-align:left;padding:1.6mm 2mm 1.6mm 0;border-bottom:.25pt solid #C9CBBE;vertical-align:top}}th{{font:500 7.5pt "Pmono";letter-spacing:.06em;text-transform:uppercase;color:#33494A;border-bottom:.6pt solid #222F30}}
+td,th{{text-align:left;padding:.85mm 3mm .85mm 0;border-bottom:.25pt solid #C9CBBE;vertical-align:top}}th{{font:500 7.5pt "Pmono";letter-spacing:.06em;text-transform:uppercase;color:#33494A;border-bottom:.6pt solid #222F30}}
 .sw{{display:inline-block;width:3.2mm;height:3.2mm;border-radius:.6mm;vertical-align:-.5mm;margin-right:2mm;border:.25pt solid #C9CBBE}}
-.bar{{height:2mm;background:#A7E26E;width:24mm;margin:0 0 6mm}}</style>
+td:first-child{{white-space:nowrap}}.bar{{height:2mm;background:#A7E26E;width:24mm;margin:0 0 6mm}}</style>
 <div class="bar"></div><h1>Stationery print spec</h1><div class="k">Mustard Bio · stationery set · 17 items + email signature</div>
 <h2>Which file to use</h2><table><tr><th>Folder</th><th>Use for</th></tr>
 <tr><td>01 Print PDF (RGB)</td><td>Office and digital printing, sharing on screen. Vector artwork, fonts embedded, 3 mm bleed with TrimBox and BleedBox set.</td></tr>

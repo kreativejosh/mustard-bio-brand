@@ -18,6 +18,7 @@ for f in sorted(glob.glob(os.path.join(d, '*.pdf'))):
     subprocess.run(['gs', '-q', '-dNOPAUSE', '-dBATCH', '-dSAFER', '-sDEVICE=pdfwrite', '-dCompatibilityLevel=1.6',
                     '-sColorConversionStrategy=CMYK', '-sProcessColorModel=DeviceCMYK', '-dPDFSETTINGS=/prepress',
                     '-dPreserveTrimBox=true', '-dDownsampleColorImages=false', '-dDownsampleGrayImages=false',
-                    '-dAutoFilterColorImages=false', '-dColorImageFilter=/FlateEncode',
+                    '-dAutoFilterColorImages=true',  # prepress: photos at maximum JPEG quality, flat art lossless
+                   
                     '-o', out, f], check=True)
     print('ok', os.path.basename(f), os.path.basename(out))
