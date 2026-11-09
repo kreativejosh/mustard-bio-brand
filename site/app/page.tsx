@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/link';
 import { HOME } from '@/lib/copy';
 import { HeroCanvas } from '@/components/hero-canvas';
 import { MaverickUI } from '@/components/maverick-ui';

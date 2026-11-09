@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/link';
 import { NAV, TAGLINE, HOME, ABOUT } from '@/lib/copy';
 import { Btn } from './ui';
 

@@ -1,5 +1,5 @@
 // Small building blocks of the Mustard Bio site language.
-import Link from 'next/link';
+import Link from '@/components/link';
 import type { ReactNode } from 'react';
 
 export function Arrow() {

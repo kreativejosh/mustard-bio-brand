@@ -1,14 +1,16 @@
 'use client';
 // Header: logo, page links, partner CTA. Turns solid once you scroll off the hero; a hairline scale rule under it
 // fills with reading progress. On small screens the links fold into a full-height menu.
-import Link from 'next/link';
+import Link from '@/components/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { NAV, HOME } from '@/lib/copy';
 import { Arrow } from './ui';
 
 export function Nav() {
-  const path = usePathname();
+  // Normalised so it also works when pages are served as flat .html files (static preview)
+  const seg = (usePathname() || '/').split('/').filter(Boolean).pop()?.replace(/\.html$/, '') || '';
+  const path = !seg || seg === 'index' ? '/' : '/' + seg;
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
   const dark = path === '/' || path === '/technology';  // pages whose hero is charcoal
