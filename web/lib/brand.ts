@@ -104,7 +104,7 @@ export const ILLO = {
     for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) d += `M${pts[i][0].toFixed(1)} ${pts[i][1].toFixed(1)}L${pts[j][0].toFixed(1)} ${pts[j][1].toFixed(1)}`;
     return `<path d="${d}"/>`;
   },
-  // added for the website: the intelligence layer over production (layers) and the Maverick OS roadmap (trajectory)
+  // added for the website: the intelligence layer over production
   layers() {
     // four floating isometric planes; the top one, the intelligence layer, is ruled with fine lines
     let d = ''; const cx = 57, w = 50, h = 16;
@@ -120,23 +120,13 @@ export const ILLO = {
     }
     return `<path d="${d}"/>`;
   },
-  trajectory() {
-    // three rising plateaus (monitor -> decide -> automate), drawn as 9 parallel offset strokes
-    let d = '';
-    for (let k = 0; k < 9; k++) {
-      const o = k * 3.2;
-      const pts = [[3, 104 - o], [34 - o * .3, 104 - o], [44 - o * .3, 78 - o], [66 - o * .3, 78 - o], [76 - o * .3, 50 - o], [111, 50 - o]];
-      d += 'M' + pts.map((p) => p.map((v) => v.toFixed(2)).join(' ')).join('L');
-    }
-    return `<path d="${d}"/><path d="M111 10V26" stroke-width="3"/>`;
-  },
 };
 export type IlloKind = keyof typeof ILLO;
 
 export const ILLO_TILES: [IlloKind, string, string][] = [
   ['dose', 'var(--mint)', '#222F30'], ['capsules', 'var(--charcoal)', '#fff'], ['lattice', 'var(--stone)', '#222F30'],
   ['scale', 'var(--offwhite)', '#222F30'], ['flow', 'var(--deepsea)', '#fff'], ['network', 'var(--sage)', '#222F30'],
-  ['layers', 'var(--stone)', '#222F30'], ['trajectory', 'var(--deepsea)', '#fff'],
+  ['layers', 'var(--stone)', '#222F30'],
 ];
 
 export const CURVES: [label: string, bezier: string, ms: number][] = [
