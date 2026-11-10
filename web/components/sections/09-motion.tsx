@@ -23,6 +23,7 @@ export default function SectionMotion() {
     <figure className="fig"><video src="/assets/motion/markbuild.mp4" poster="/assets/motion/markbuild.jpg" muted loop playsInline autoPlay preload="metadata"></video><figcaption><b>Glass mark build</b><span>5 s</span></figcaption></figure>
     <figure className="fig"><video src="/assets/motion/flow.mp4" poster="/assets/motion/flow.jpg" muted loop playsInline autoPlay preload="metadata"></video><figcaption><b>Flow</b><span>10 s loop</span></figcaption></figure>
     <figure className="fig"><video src="/assets/motion/blob.mp4" poster="/assets/motion/blob.jpg" muted loop playsInline autoPlay preload="metadata"></video><figcaption><b>Metaball</b><span>8 s loop</span></figcaption></figure>
+    <figure className="fig"><video src="/assets/motion/blob-charcoal.mp4" poster="/assets/motion/blob-charcoal.jpg" muted loop playsInline autoPlay preload="metadata"></video><figcaption><b>Metaball · charcoal</b><span>8 s loop · for charcoal panels</span></figcaption></figure>
     <figure className="fig"><video src="/assets/motion/helix.mp4" poster="/assets/motion/helix.jpg" muted loop playsInline autoPlay preload="metadata"></video><figcaption><b>Molecule chain</b><span>12 s loop</span></figcaption></figure>
     <figure className="fig span2"><video src="/assets/motion/tubes.mp4" poster="/assets/motion/tubes.jpg" muted loop playsInline autoPlay preload="metadata"></video><figcaption><b>Test tubes</b><span>6 s loop</span></figcaption></figure>
   </div>
