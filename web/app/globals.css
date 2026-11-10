@@ -180,10 +180,10 @@ tr:last-child td{border-bottom:0}
 .usp svg{width:120px;height:120px}
 .usp p{font-size:19px;line-height:1.35;letter-spacing:-.01em;max-width:34ch}
 @media (max-width:900px){.usp{grid-template-columns:1fr}.usp>div{min-height:320px}}
-.illo{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.illo{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 .illo .tile{aspect-ratio:1;display:grid;place-items:center}
 .illo svg{width:58%;height:auto}
-@media (max-width:900px){.illo{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:900px){.illo{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .grid24{background-image:linear-gradient(var(--mint) 1px,transparent 1px),linear-gradient(90deg,var(--mint) 1px,transparent 1px);background-size:calc(100%/24) calc(100%/24)}
 
 /* cards: article card with cut-corner arrow */

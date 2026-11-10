@@ -104,12 +104,39 @@ export const ILLO = {
     for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) d += `M${pts[i][0].toFixed(1)} ${pts[i][1].toFixed(1)}L${pts[j][0].toFixed(1)} ${pts[j][1].toFixed(1)}`;
     return `<path d="${d}"/>`;
   },
+  // added for the website: the intelligence layer over production (layers) and the Maverick OS roadmap (trajectory)
+  layers() {
+    // four floating isometric planes; the top one, the intelligence layer, is ruled with fine lines
+    let d = ''; const cx = 57, w = 50, h = 16;
+    const plane = (y: number) => ({ L: [cx - w, y], T: [cx, y - h], R: [cx + w, y], B: [cx, y + h] });
+    for (let k = 0; k < 4; k++) {
+      const { L, T, R, B } = plane(30 + k * 22);
+      d += `M${L}L${T}L${R}L${B}Z`.replace(/,/g, ' ');
+    }
+    const { L, T, B } = plane(30);
+    for (let t = 1; t < 14; t++) { // lines parallel to the L-T edge, from the L-B edge to the T-R edge
+      const f = t / 14, sx = L[0] + (B[0] - L[0]) * f, sy = L[1] + (B[1] - L[1]) * f;
+      d += `M${sx.toFixed(2)} ${sy.toFixed(2)}L${(sx + T[0] - L[0]).toFixed(2)} ${(sy + T[1] - L[1]).toFixed(2)}`;
+    }
+    return `<path d="${d}"/>`;
+  },
+  trajectory() {
+    // three rising plateaus (monitor -> decide -> automate), drawn as 9 parallel offset strokes
+    let d = '';
+    for (let k = 0; k < 9; k++) {
+      const o = k * 3.2;
+      const pts = [[3, 104 - o], [34 - o * .3, 104 - o], [44 - o * .3, 78 - o], [66 - o * .3, 78 - o], [76 - o * .3, 50 - o], [111, 50 - o]];
+      d += 'M' + pts.map((p) => p.map((v) => v.toFixed(2)).join(' ')).join('L');
+    }
+    return `<path d="${d}"/><path d="M111 10V26" stroke-width="3"/>`;
+  },
 };
 export type IlloKind = keyof typeof ILLO;
 
 export const ILLO_TILES: [IlloKind, string, string][] = [
   ['dose', 'var(--mint)', '#222F30'], ['capsules', 'var(--charcoal)', '#fff'], ['lattice', 'var(--stone)', '#222F30'],
   ['scale', 'var(--offwhite)', '#222F30'], ['flow', 'var(--deepsea)', '#fff'], ['network', 'var(--sage)', '#222F30'],
+  ['layers', 'var(--stone)', '#222F30'], ['trajectory', 'var(--deepsea)', '#fff'],
 ];
 
 export const CURVES: [label: string, bezier: string, ms: number][] = [

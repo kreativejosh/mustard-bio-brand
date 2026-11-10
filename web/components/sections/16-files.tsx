@@ -12,6 +12,7 @@ export default function SectionFiles() {
   <div className="tw"><table>
     <thead><tr><th>Folder</th><th>Contents</th><th>Formats</th></tr></thead>
     <tbody>
+      <tr><td>illustrations/</td><td className="wrap">Illustration pack, 114 grid, 1 px line: dose, capsules, lattice, scale, flow, network, layers, trajectory</td><td>SVG · currentColor</td></tr>
       <tr><td>logo/</td><td className="wrap">Primary charcoal, white, white with lime dose, black; mark, Mark S, wordmark, app icon</td><td>SVG</td></tr>
       <tr><td>3d/</td><td className="wrap">Capsule, glass mark, molecule chain, metaballs, test tubes, flask, tablets, flow grounds</td><td>JPG 1600 px</td></tr>
       <tr><td>motion/</td><td className="wrap">Capsule, glass mark build, flow, metaball, molecule chain, test tubes</td><td>MP4 720p + poster</td></tr>
