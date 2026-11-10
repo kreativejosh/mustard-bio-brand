@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       {/* Hero: live glass-flow shader, title anchored low, scale rule as the baseline */}
-      <section className="hero">
+      <section className="hero" data-page="/" data-dark="1">
         <div className="hero-bg"><img src="/assets/3d/flow-dark.jpg" alt="" /><HeroCanvas /></div>
         <div className="hero-in">
           <Title as="h1" lines={hero.title} className="d-1" />

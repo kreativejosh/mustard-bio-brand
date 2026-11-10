@@ -13,7 +13,7 @@ export default function Technology() {
   ];
   return (
     <>
-      <section className="thero">
+      <section className="thero" data-page="/technology" data-dark="1">
         <div className="thero-in wrap">
           <div className="thero-t">
             <Tag tone="d">Technology</Tag>

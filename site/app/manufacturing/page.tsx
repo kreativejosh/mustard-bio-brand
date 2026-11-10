@@ -13,7 +13,7 @@ const ICONS = {
 export default function Manufacturing() {
   return (
     <>
-      <section className="phero wrap">
+      <section className="phero wrap" data-page="/manufacturing" data-dark="0">
         <div className="phero-t"><Tag>Manufacturing</Tag><Title as="h1" lines={M.hero.title} className="d-1" /></div>
         <div className="phero-grid">
           <Frame src="/assets/render/facility-corridor.jpg" alt="Illustrative render of a clean manufacturing corridor" caption="Illustrative render" className="phero-img" parallax />

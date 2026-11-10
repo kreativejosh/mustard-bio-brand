@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: 'About', description: A.hero.body[0] 
 export default function About() {
   return (
     <>
-      <section className="phero wrap">
+      <section className="phero wrap" data-page="/about" data-dark="0">
         <div className="phero-t"><Tag>About</Tag><Title as="h1" lines={A.hero.title} className="d-1" /></div>
         <div className="about-grid">
           <Frame src="/assets/render/asset-mark-light.jpg" alt="The Mustard Bio scale-rule mark as a glass sculpture" className="about-img" parallax />

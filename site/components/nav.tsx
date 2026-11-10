@@ -10,10 +10,18 @@ import { Arrow } from './ui';
 export function Nav() {
   // Normalised so it also works when pages are served as flat .html files (static preview)
   const seg = (usePathname() || '/').split('/').filter(Boolean).pop()?.replace(/\.html$/, '') || '';
-  const path = !seg || seg === 'index' ? '/' : '/' + seg;
+  const guess = !seg || seg === 'index' ? '/' : '/' + seg;
+  // The page itself is the source of truth (its hero carries data-page and data-dark): the URL can differ
+  // from the route when pages are served as flat files, which left the dark logo on a dark hero until scroll.
+  const [page, setPage] = useState({ path: guess, dark: guess === '/' || guess === '/technology' });
+  const path = page.path;
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
-  const dark = path === '/' || path === '/technology';  // pages whose hero is charcoal
+  const dark = page.dark;
+  useEffect(() => {
+    const el = document.querySelector<HTMLElement>('[data-page]');
+    setPage({ path: el?.dataset.page ?? guess, dark: el ? el.dataset.dark === '1' : guess === '/' || guess === '/technology' });
+  }, [guess]);
   useEffect(() => {
     const on = () => setSolid(scrollY > 40);
     on(); addEventListener('scroll', on, { passive: true }); return () => removeEventListener('scroll', on);
