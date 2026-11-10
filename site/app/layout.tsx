@@ -3,17 +3,23 @@ import { IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import { Nav } from '@/components/nav';
 import { Footer } from '@/components/footer';
 import { Reveal } from '@/components/reveal';
-import { TAGLINE, HOME } from '@/lib/copy';
+import { SITE_URL, NAME, PAGES } from '@/lib/seo';
 import './globals.css';
 
 const sans = IBM_Plex_Sans({ subsets: ['latin'], weight: ['300', '400', '500'], variable: '--font-sans', display: 'swap' });
 const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono', display: 'swap' });
 
 export const metadata: Metadata = {
-  title: { default: `Mustard Bio · ${TAGLINE}`, template: '%s · Mustard Bio' },
-  description: HOME.hero.sub,
+  metadataBase: new URL(SITE_URL),
+  title: { default: PAGES.home.title, template: `%s · ${NAME}` },
+  description: PAGES.home.description,
+  applicationName: NAME,
+  authors: [{ name: NAME }],
+  creator: NAME,
+  publisher: NAME,
   icons: { icon: '/assets/logo/app-icon.svg' },
-  openGraph: { title: 'Mustard Bio', description: HOME.hero.sub, images: ['/assets/render/asset-mark-dark.jpg'] },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 } },
+  alternates: { types: { 'text/plain': '/llms.txt' } },
 };
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, viewportFit: 'cover', themeColor: '#222F30' };
 

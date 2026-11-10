@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
+import { JsonLd } from '@/components/json-ld';
 import { TECHNOLOGY as T } from '@/lib/copy';
 import { MaverickUI } from '@/components/maverick-ui';
 import { CtaBand } from '@/components/cta-band';
 import { Tag, Title, Btn } from '@/components/ui';
 
-export const metadata: Metadata = { title: 'Technology', description: T.hero.sub };
+export const metadata: Metadata = pageMetadata('technology');
 
 export default function Technology() {
   const stages = [
@@ -13,6 +15,7 @@ export default function Technology() {
   ];
   return (
     <>
+      <JsonLd page="technology" />
       <section className="thero" data-page="/technology" data-dark="1">
         <div className="thero-in wrap">
           <div className="thero-t">
@@ -35,7 +38,7 @@ export default function Technology() {
       </section>
 
       <section className="wrap road">
-        <div className="road-h"><Tag>02 · Roadmap</Tag></div>
+        <div className="road-h"><Tag>02 · Roadmap</Tag><h2 className="sr-only">Maverick OS roadmap</h2></div>
         <ol className="road-l">
           {stages.map((s, i) => (
             <li key={s.k} data-r>

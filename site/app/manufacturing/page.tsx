@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
+import { JsonLd } from '@/components/json-ld';
 import { MANUFACTURING as M } from '@/lib/copy';
 import { CtaBand } from '@/components/cta-band';
 import { Tag, Title, Frame, Rule } from '@/components/ui';
 
-export const metadata: Metadata = { title: 'Manufacturing', description: M.hero.body[0] };
+export const metadata: Metadata = pageMetadata('manufacturing');
 
 const ICONS = {
   contract: <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="14" width="36" height="26" rx="2" /><path d="M6 22h36M16 14v-4h16v4M20 30h8" /></svg>,
@@ -13,6 +15,7 @@ const ICONS = {
 export default function Manufacturing() {
   return (
     <>
+      <JsonLd page="manufacturing" />
       <section className="phero wrap" data-page="/manufacturing" data-dark="0">
         <div className="phero-t"><Tag>Manufacturing</Tag><Title as="h1" lines={M.hero.title} className="d-1" /></div>
         <div className="phero-grid">
@@ -43,7 +46,7 @@ export default function Manufacturing() {
         {M.blocks.slice(1).map((b, i) => (
           <article key={b.title} className="duo-c" data-r style={{ transitionDelay: `${i * 100}ms` }}>
             <span className="ico">{i ? ICONS.quality : ICONS.contract}</span>
-            <h3 className="h-2">{b.title}</h3>
+            <h2 className="h-2">{b.title}</h2>
             {b.body.map((p, j) => <p key={j} className="body">{p}</p>)}
           </article>
         ))}

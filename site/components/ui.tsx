@@ -1,6 +1,6 @@
 // Small building blocks of the Mustard Bio site language.
 import Link from '@/components/link';
-import type { ReactNode } from 'react';
+import { Fragment, type ReactNode } from 'react';
 
 export function Arrow() {
   return <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.5" /></svg>;
@@ -30,7 +30,7 @@ export function Rule({ className = '', dose = true }: { className?: string; dose
 export function Title({ lines, as: As = 'h2', className = '' }: { lines: string[]; as?: 'h1' | 'h2'; className?: string }) {
   return (
     <As className={`title ${className}`} data-r>
-      {lines.map((l, i) => <span key={i} className={`ln${i === lines.length - 1 && lines.length > 1 ? ' mute' : ''}`}><span style={{ transitionDelay: `${i * 90}ms` }}>{l}</span></span>)}
+      {lines.map((l, i) => <Fragment key={i}>{i > 0 && ' '}<span className={`ln${i === lines.length - 1 && lines.length > 1 ? ' mute' : ''}`}><span style={{ transitionDelay: `${i * 90}ms` }}>{l}</span></span></Fragment>)}
     </As>
   );
 }

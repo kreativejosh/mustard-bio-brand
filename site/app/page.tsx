@@ -1,3 +1,6 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
+import { JsonLd } from '@/components/json-ld';
 import Link from '@/components/link';
 import { HOME } from '@/lib/copy';
 import { HeroCanvas } from '@/components/hero-canvas';
@@ -5,10 +8,13 @@ import { MaverickUI } from '@/components/maverick-ui';
 import { CtaBand } from '@/components/cta-band';
 import { Btn, Tag, Title, Frame, Rule, Arrow } from '@/components/ui';
 
+export const metadata: Metadata = pageMetadata('home');
+
 export default function Home() {
   const { hero, approach, businesses: b, start, build } = HOME;
   return (
     <>
+      <JsonLd page="home" />
       {/* Hero: live glass-flow shader, title anchored low, scale rule as the baseline */}
       <section className="hero" data-page="/" data-dark="1">
         <div className="hero-bg"><img src="/assets/3d/flow-dark.jpg" alt="" /><HeroCanvas /></div>
