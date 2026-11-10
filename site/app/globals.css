@@ -74,9 +74,11 @@ ol,ul{list-style:none;margin:0;padding:0}
 
 /* ---------- header ---------- */
 .hdr{position:fixed;inset:0 0 auto;z-index:50;color:var(--ink);transition:background .4s var(--ease),color .4s var(--ease)}
-.hdr-in{max-width:var(--max);margin-inline:auto;padding:0 var(--gut);height:var(--hdr);display:flex;align-items:center;gap:28px}
+.hdr-in{max-width:var(--max);margin-inline:auto;padding:0 var(--gut);height:var(--hdr);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:28px}
+.hdr .logo{justify-self:start}
+.hdr-cta{justify-self:end}
 .hdr .logo img{width:172px;height:auto}
-.hdr .links{display:flex;gap:4px;margin-left:auto;background:rgba(247,247,245,.8);backdrop-filter:blur(12px);border-radius:var(--r2);padding:4px}
+.hdr .links{display:flex;gap:4px;justify-self:center;background:rgba(247,247,245,.8);backdrop-filter:blur(12px);border-radius:var(--r2);padding:4px}
 .hdr .links a{font:500 13px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:11px 14px;border-radius:var(--r1);color:var(--ink-2);transition:background .25s,color .25s}
 .hdr .links a:hover{color:var(--ink);background:rgba(255,255,255,.9)}
 .hdr .links a.on{background:var(--white);color:var(--ink);box-shadow:0 1px 2px rgba(34,47,48,.08)}
@@ -369,6 +371,7 @@ ol,ul{list-style:none;margin:0;padding:0}
 @media (max-width:960px){
   :root{--hdr:68px}
   .hdr .links,.hdr-cta{display:none}
+  .hdr-in{display:flex}
   .burger{display:flex}
   .hdr .logo img{width:150px}
   .hero-in{grid-template-columns:1fr;gap:28px;padding-bottom:64px}
